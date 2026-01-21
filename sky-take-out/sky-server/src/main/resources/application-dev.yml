@@ -2,10 +2,10 @@ sky:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     host: localhost
-    port:
-    database: #数据库
-    username: #用户名
-    password: #sql密码
+    port: 3306
+    database: sky_take_out
+    username: root
+    password: 12345678
 
   alioss:
     endpoint: #填写你的阿里oss的区域
@@ -15,8 +15,8 @@ sky:
 
   redis:
     host: localhost
-    port: 
-    password: #填写你的密码
+    port: 6379
+    password: #填写你的密码，没有密码就留空
     database: 0
 
   wechat: #跟着黑马教程填即可，将小程序id换成你自己的

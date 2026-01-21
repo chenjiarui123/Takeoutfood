@@ -70,7 +70,6 @@ public class EmployeeController {
 
     /**
      * 退出
-     *
      * @return
      */
     @PostMapping("/logout")
@@ -105,6 +104,13 @@ public class EmployeeController {
         PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
         return Result.success(pageResult);
     }
+
+    /**
+     * 启用禁用员工账号
+     * @param status
+     * @param id
+     * @return
+     */
     @PostMapping("status/{status}")
     @ApiOperation("启用禁用员工账号")
     public Result startOrStop(@PathVariable Integer status,Long id) {
@@ -137,7 +143,11 @@ public class EmployeeController {
         employeeService.update(employeeDTO);
         return Result.success();
     }
-
+    /**
+     * 修改员工密码
+     * @param passwordEditDTO
+     * @return
+     */
     @PutMapping("/editPassword")
     @ApiOperation("修改员工密码")
     public Result updatePassword(@RequestBody PasswordEditDTO passwordEditDTO) {
