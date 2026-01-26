@@ -18,52 +18,35 @@ import java.util.Map;
 public interface SetmealMapper {
 
     /**
-     * 更新套餐信息
-     * @param setmeal
-     */
-    @AutoFill(value = OperationType.UPDATE)
-    void update(Setmeal setmeal);
-
-    @Select("select * from setmeal where category_id=#{id}")
-    Integer countByCategoryId(Long id);
-
-    /**
-     * 套餐分页查询
-     * @param setmealPageQueryDTO
-     * @return
-     */
-    Page<SetmealVO> pageQuery(SetmealPageQueryDTO setmealPageQueryDTO);
-
-    /**
-     * 根据id查询套餐
+     * 根据分类id查询套餐的数量（其他模块使用，不要删除）
+     * 
      * @param id
      * @return
      */
-    @Select("select * from setmeal where id = #{id}")
-    Setmeal getById(Long id);
+    @Select("select * from setmeal where category_id=#{id}")
+    Integer countByCategoryId(Long id);
+
+    // TODO: 定义新增套餐方法
+
+    // TODO: 定义套餐分页查询方法
+
+    // TODO: 定义根据id查询套餐方法
+
+    // TODO: 定义更新套餐方法
+
+    // TODO: 定义根据id删除套餐方法
 
     /**
-     * 新增套餐
-     * @param setmeal
-     */
-    @AutoFill(value = OperationType.INSERT)
-    void insert(Setmeal setmeal);
-    /**
-     * 根据id删除套餐
-     * @param setmealId
-     */
-    @Delete("delete from setmeal where id = #{id}")
-    void deleteById(Long setmealId);
-
-    /**
-     * 动态条件查询套餐
+     * 动态条件查询套餐（用户端使用，不要删除）
+     * 
      * @param setmeal
      * @return
      */
     List<Setmeal> list(Setmeal setmeal);
 
     /**
-     * 根据套餐id查询菜品选项
+     * 根据套餐id查询菜品选项（用户端使用，不要删除）
+     * 
      * @param setmealId
      * @return
      */
@@ -73,7 +56,8 @@ public interface SetmealMapper {
     List<DishItemVO> getDishItemBySetmealId(Long setmealId);
 
     /**
-     * 根据条件统计套餐数量
+     * 根据条件统计套餐数量（报表使用，不要删除）
+     * 
      * @param map
      * @return
      */
